@@ -76,9 +76,9 @@ class AseAnim extends Object {
 
     public function update(dt: Float) {
         if (playing) {
-            if (timer > durations[frame]) {
+            while (timer > durations[frame]) {
                 frame = (frame + 1) % bitmaps.length;
-                timer = 0;
+                timer -= durations[frame];
             }
             timer += dt;
         }
